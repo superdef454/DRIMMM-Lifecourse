@@ -1,7 +1,6 @@
 import classes from './UniversityInfo.module.scss';
 import { Timeline } from 'primereact/timeline';
 import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
 import { AuthPage } from '../../auth/components/AuthPage.tsx';
 import { MapRussia } from '../MapRussia.tsx';
 
@@ -12,18 +11,32 @@ interface TimelineEvent {
   color?: string;
   image?: string;
   content?: string;
+  description?: string;
 }
 
 export const UniversityInfo = () => {
   const events: TimelineEvent[] = [
     {
-      status: 'Мы молодцы',
-      icon: 'pi pi-shopping-cart',
-      image: 'game-controller.jpg',
+      status: 'Улучшение качества образования',
+      icon: 'pi pi-chart-line',
       content: 'game-controller.jpg',
+      description:
+        '           Приложение помогает студентам разобраться в сложных темах, получить помощь от\n' +
+        '          однокурсников и оформить свои достижения в резюме. Это способствует более глубокому пониманию материала и\n' +
+        '          повышению успеваемости.',
     },
-    { status: 'И тут молодцы!', icon: 'pi pi-cog' },
-    { status: 'Тут тоже молодцы', icon: 'pi pi-shopping-cart' },
+    {
+      status: 'Повышение вовлечённости студентов',
+      icon: 'pi pi-users',
+      description:
+        ' Приложение предоставляет студентам новые возможности для общения, обмена опытом и сотрудничества. Это повышает их мотивацию и интерес к учёбе.',
+    },
+    {
+      status: 'Повышение престижа вуза',
+      icon: 'pi pi-graduation-cap',
+      description:
+        ' Приложение, которое помогает студентам учиться и развиваться, может повысить репутацию вуза и привлечь больше абитуриентов.',
+    },
   ];
 
   const customizedMarker = (item: TimelineEvent) => {
@@ -47,12 +60,7 @@ export const UniversityInfo = () => {
             className="shadow-1"
           />
         )}
-        <p>
-          ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-          deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-          neque quas!
-        </p>
-        <Button label="Read more" className="p-button-text"></Button>
+        <p>{item.description}</p>
       </Card>
     );
   };
@@ -60,11 +68,7 @@ export const UniversityInfo = () => {
   return (
     <div>
       <h1 className={classes.title}>Информация ВУЗам</h1>
-      <div className={classes.description}>
-        ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque quas!
-      </div>
+      <div className={classes.description}>Приложение «LifeCourse» полезно для вузов по нескольким причинам:</div>
 
       <div>
         <Timeline

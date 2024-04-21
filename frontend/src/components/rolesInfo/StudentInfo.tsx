@@ -1,7 +1,6 @@
 import classes from './StudentInfo.module.scss';
 import { Timeline } from 'primereact/timeline';
 import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
 import { AuthPage } from '../../auth/components/AuthPage.tsx';
 
 export const StudentInfo = () => {
@@ -11,16 +10,28 @@ export const StudentInfo = () => {
     icon?: string;
     color?: string;
     image?: string;
+    description?: string;
   }
 
   const events: TimelineEvent[] = [
     {
-      status: 'Мы молодцы',
-      icon: 'pi pi-shopping-cart',
-      image: 'game-controller.jpg',
+      status: 'Помощь в учёбе',
+      icon: 'pi pi-info-circle',
+      description:
+        'Студенты могут использовать приложение для поиска информации, решения задач и обмена опытом с однокурсниками. Это помогает им лучше понимать материал и достигать более высоких результатов.',
     },
-    { status: 'И тут молодцы!', icon: 'pi pi-cog' },
-    { status: 'Тут тоже молодцы', icon: 'pi pi-shopping-cart' },
+    {
+      status: 'Общение и сотрудничество',
+      icon: 'pi pi-trophy',
+      description:
+        'Приложение позволяет студентам оформить свои достижения в учёбе в виде резюме. Это может быть полезно при поиске работы или поступлении в магистратуру.',
+    },
+    {
+      status: 'Общение и сотрудничество',
+      icon: 'pi pi-users',
+      description:
+        'Приложение предоставляет студентам новые возможности для общения, обмена опытом и сотрудничества. Это способствует их развитию и повышению мотивации.',
+    },
   ];
 
   const customizedMarker = (item: TimelineEvent) => {
@@ -44,12 +55,7 @@ export const StudentInfo = () => {
             className="shadow-1"
           />
         )}
-        <p>
-          ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-          deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-          neque quas!
-        </p>
-        <Button label="Read more" className="p-button-text"></Button>
+        <p>{item.description}</p>
       </Card>
     );
   };
@@ -57,11 +63,7 @@ export const StudentInfo = () => {
   return (
     <div>
       <h1 className={classes.title}>Информация студентам</h1>
-      <div className={classes.description}>
-        ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque quas!
-      </div>
+      <div className={classes.description}>Приложение «LifeCourse» полезно для студентов по нескольким причинам:</div>
 
       <div>
         <Timeline

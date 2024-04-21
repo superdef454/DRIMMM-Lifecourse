@@ -1,7 +1,6 @@
 import classes from './EmployerInfo.module.scss';
 import { Timeline } from 'primereact/timeline';
 import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
 import { AuthPage } from '../../auth/components/AuthPage.tsx';
 
 export const EmployerInfo = () => {
@@ -11,16 +10,28 @@ export const EmployerInfo = () => {
     icon?: string;
     color?: string;
     image?: string;
+    description?: string;
   }
 
   const events: TimelineEvent[] = [
     {
-      status: 'Мы молодцы',
+      status: 'Анализ рынка труда',
       icon: 'pi pi-shopping-cart',
-      image: 'game-controller.jpg',
+      description:
+        'Предприниматели могут использовать приложение для анализа рынка труда, поиска талантливых студентов и выпускников, а также для оценки их навыков и достижений.',
     },
-    { status: 'И тут молодцы!', icon: 'pi pi-cog' },
-    { status: 'Тут тоже молодцы', icon: 'pi pi-shopping-cart' },
+    {
+      status: 'Привлечение молодых специалистов',
+      icon: 'pi pi-briefcase',
+      description:
+        'Предприниматели могут использовать приложение для привлечения молодых специалистов, которые ищут работу или стажировку. Это может быть особенно полезно для стартапов и инновационных компаний.',
+    },
+    {
+      status: 'Создание сообщества',
+      icon: 'pi pi-users',
+      description:
+        'Приложение объединяет студентов, преподавателей и других участников образовательного процесса в единое сообщество. Предприниматели могут использовать это сообщество для обмена опытом, идеями и ресурсами, а также для поиска партнёров и инвесторов.',
+    },
   ];
 
   const customizedMarker = (item: TimelineEvent) => {
@@ -44,12 +55,7 @@ export const EmployerInfo = () => {
             className="shadow-1"
           />
         )}
-        <p>
-          ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-          deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-          neque quas!
-        </p>
-        <Button label="Read more" className="p-button-text"></Button>
+        <p>{item.description}</p>
       </Card>
     );
   };
@@ -58,9 +64,7 @@ export const EmployerInfo = () => {
     <div>
       <h1 className={classes.title}>Информация предпринимателям</h1>
       <div className={classes.description}>
-        ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-        deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
-        neque quas!
+        Приложение «LifeCourse» может быть полезно предпринимателям по нескольким причинам:
       </div>
 
       <div>

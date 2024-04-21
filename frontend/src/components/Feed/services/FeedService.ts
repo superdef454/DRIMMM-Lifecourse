@@ -24,7 +24,55 @@ export class FeedService {
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const response = await apiGet<IFeedState['list']>('/api/university');
+      const response = await apiGet<any[]>('/api/university');
+
+      return response;
+    } catch (e: any) {
+      if (e.status === StatusCodeEnum.CLIENT_ERROR_UNAUTHORIZED) {
+        console.log('qwfe');
+      }
+
+      console.log('rejectWithValue', e);
+      return rejectWithValue({});
+    }
+  });
+  static getCity = createAsyncThunk('feed/city', async (_request: never, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+
+    try {
+      const response = await apiGet<any[]>('/api/city');
+
+      return response;
+    } catch (e: any) {
+      if (e.status === StatusCodeEnum.CLIENT_ERROR_UNAUTHORIZED) {
+        console.log('qwfe');
+      }
+
+      console.log('rejectWithValue', e);
+      return rejectWithValue({});
+    }
+  });
+  static getFaculty = createAsyncThunk('feed/faculty', async (_request: never, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+
+    try {
+      const response = await apiGet<any[]>('/api/faculty');
+
+      return response;
+    } catch (e: any) {
+      if (e.status === StatusCodeEnum.CLIENT_ERROR_UNAUTHORIZED) {
+        console.log('qwfe');
+      }
+
+      console.log('rejectWithValue', e);
+      return rejectWithValue({});
+    }
+  });
+  static getGroup = createAsyncThunk('feed/group', async (_request: never, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+
+    try {
+      const response = await apiGet<any[]>('/api/group');
 
       return response;
     } catch (e: any) {

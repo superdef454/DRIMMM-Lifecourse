@@ -2,20 +2,17 @@ import classes from './Feed.module.scss';
 import { useRef, useState } from 'react';
 import { Button } from 'primereact/button';
 import { Chip } from 'primereact/chip';
-import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
-import { Panel } from 'primereact/panel';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Editor } from 'primereact/editor';
 import { Tooltip } from 'primereact/tooltip';
 import { FileUpload, FileUploadHeaderTemplateOptions, FileUploadUploadEvent } from 'primereact/fileupload';
 import { ProgressBar } from 'primereact/progressbar';
 import { Tag } from 'primereact/tag';
-import { IOptions } from './IOptions.ts';
 import axios from 'axios';
 import moment from 'moment';
 import { localStorageNames } from '../../main/constants/localStorageNames.ts';
-import { cities, faculty, group, potok, university } from './mocks.ts';
 import { FeedDataList } from './FeedDataList.tsx';
+import { FeedFilters } from './FeedFilters.tsx';
 
 export const Feed = () => {
   const [tags, setTags] = useState<string[]>([]);
@@ -24,11 +21,6 @@ export const Feed = () => {
   const fileUploadRef = useRef(null);
 
   const [addPostMode, setAddPostMode] = useState(false);
-  const [paramCity, setParamCity] = useState<IOptions | null>(null);
-  const [paramUniversity, setParamUniversity] = useState<IOptions | null>(null);
-  const [paramFaculty, setParamFaculty] = useState<IOptions | null>(null);
-  const [paramGroup, setParamGroup] = useState<IOptions | null>(null);
-  const [paramPotok, setParamPotok] = useState<IOptions | null>(null);
 
   const [feedTitle, setFeedTitle] = useState('');
   const [feedDescription, setFeedDescription] = useState('');
@@ -327,74 +319,7 @@ export const Feed = () => {
       </div>
       <div className={classes.feedPage}>
         <FeedDataList />
-        <Panel header={'Фильтры'} toggleable className={classes.searchGroup}>
-          <div className={classes.aside}>
-            <div className={classes.filterItem}>
-              <div>Город</div>
-              <Dropdown
-                filter
-                inputId="dd-city"
-                value={paramCity}
-                onChange={(e: DropdownChangeEvent) => setParamCity(e.value)}
-                options={cities}
-                optionLabel="name"
-                className={classes.filterItem__input}
-              />
-            </div>
-            <div className={classes.filterItem}>
-              <div>ВУЗ</div>
-              <Dropdown
-                filter
-                inputId="dd-city"
-                value={paramUniversity}
-                onChange={(e: DropdownChangeEvent) => setParamUniversity(e.value)}
-                options={university}
-                optionLabel="name"
-                className={classes.filterItem__input}
-              />
-            </div>
-            <div className={classes.filterItem}>
-              <div>Факультет</div>
-              <Dropdown
-                filter
-                inputId="dd-city"
-                value={paramFaculty}
-                onChange={(e: DropdownChangeEvent) => setParamFaculty(e.value)}
-                options={faculty}
-                optionLabel="name"
-                className={classes.filterItem__input}
-              />
-            </div>
-            <div className={classes.filterItem}>
-              <div>Група</div>
-              <Dropdown
-                filter
-                inputId="dd-city"
-                value={paramGroup}
-                onChange={(e: DropdownChangeEvent) => setParamGroup(e.value)}
-                options={group}
-                optionLabel="name"
-                className={classes.filterItem__input}
-              />
-            </div>
-            <div className={classes.filterItem}>
-              <div>Поток</div>
-              <Dropdown
-                filter
-                inputId="dd-city"
-                value={paramPotok}
-                onChange={(e: DropdownChangeEvent) => setParamPotok(e.value)}
-                options={potok}
-                optionLabel="name"
-                className={classes.filterItem__input}
-              />
-            </div>
-            <div className={classes.feedFilter__buttonGroup}>
-              <Button label="Сбросить" outlined />
-              <Button label="Применить" />
-            </div>
-          </div>
-        </Panel>
+        <FeedFilters />
       </div>
     </div>
   );

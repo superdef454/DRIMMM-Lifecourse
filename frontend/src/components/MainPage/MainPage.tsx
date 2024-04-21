@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import photo from '../../../public/photohome.jpg';
 import { useAppDispatch } from '../../core/store/hooks/useAppDispatch.ts';
 import { useEffect, useState } from 'react';
-import { localStorageNames } from '../../main/constants/localStorageNames.ts';
 import { FeedService } from '../Feed/services/FeedService.ts';
 
 export const MainPage = () => {
@@ -133,8 +132,6 @@ export const MainPage = () => {
   const [list, setList] = useState<any[]>([]);
 
   useEffect(() => {
-    if (localStorage.getItem(localStorageNames.TOKEN) === null) return;
-
     dispatch(FeedService.getUniversity())
       .unwrap()
       .then(res => {
