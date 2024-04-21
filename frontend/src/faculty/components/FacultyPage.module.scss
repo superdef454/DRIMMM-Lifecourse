@@ -1,0 +1,19 @@
+.professions {
+	display: flex;
+	gap: 20px;
+}
+.card{
+
+	&>div>div>div>img{
+		width:70px;
+		height:70px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+}
+.structure{
+	background-color: white;
+	padding:50px;
+	border-radius:5px;
+}

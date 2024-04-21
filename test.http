@@ -1,0 +1,9 @@
+###
+#GET http://localhost:8080/api/version
+#accept: application/json
+
+###
+POST http://localhost:8080/auth/realms/master/protocol/openid-connect/token
+#accept: application/json
+
+

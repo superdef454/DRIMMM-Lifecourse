@@ -1,0 +1,50 @@
+.footer {
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px #dee2e6 solid;
+  border-radius: 10px;
+  background-color: #F6F7F8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_wrapper {
+  max-width: 1300px;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.footer__row_politic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer_row {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.footer__link {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer__logo_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

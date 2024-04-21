@@ -1,0 +1,24 @@
+@import "./variables";
+@import "./reset";
+@import "./shared";
+
+*{
+	font-family: $font-family;
+}
+// scroll
+*::-webkit-scrollbar {
+	width: 4px;
+}
+
+*::-webkit-scrollbar:horizontal {
+	height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+	background: $white;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: slateblue;
+	border-radius: 2px;
+}
