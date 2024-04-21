@@ -1,6 +1,6 @@
 import classes from './MainPage.module.scss';
 import { useNavigate } from 'react-router-dom';
-import photo from '../../../public/photohome.jpg';
+import photo from '../../../public/affddff4-no-bg-HD (carve 1.png';;
 import { useAppDispatch } from '../../core/store/hooks/useAppDispatch.ts';
 import { useEffect, useState } from 'react';
 import { FeedService } from '../Feed/services/FeedService.ts';
